@@ -33,8 +33,6 @@ by firmware programming).
 def setup():
     check_bootsec()
     print("Performing initial setup")
-    # uos.VfsLfs2.mkfs(bdev)
-    # vfs = uos.VfsLfs2(bdev)
     uos.VfsFat.mkfs(bdev)
     vfs = uos.VfsFat(bdev)
     uos.mount(vfs, "/")
