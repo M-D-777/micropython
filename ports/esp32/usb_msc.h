@@ -23,16 +23,25 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-#ifndef MICROPY_INCLUDED_ESP32_USB_H
-#define MICROPY_INCLUDED_ESP32_USB_H
 
-#if CONFIG_TINYUSB_MSC_ENABLED
-#include "usb_msc.h"
-#endif // CONFIG_TINYUSB_MSC_ENABLED
+#pragma once
 
-#define MICROPY_HW_USB_CDC_TX_TIMEOUT_MS (500)
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-void usb_init(void);
-void usb_tx_strn(const char *str, size_t len);
+#include <stdint.h>
+#include "tusb.h"
+#include "tinyusb.h"
 
-#endif // MICROPY_INCLUDED_ESP32_USB_H
+/**
+ * @brief Initialize MSC Device.
+ *
+ * @param cfg - init configuration structure
+ * @return esp_err_t
+ */
+esp_err_t usb_msc_init();
+
+#ifdef __cplusplus
+}
+#endif

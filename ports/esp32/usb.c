@@ -87,6 +87,10 @@ void usb_init(void) {
     };
     ESP_ERROR_CHECK(tusb_cdc_acm_init(&acm_cfg));
 
+#if CONFIG_TINYUSB_MSC_ENABLED
+    ESP_ERROR_CHECK(usb_msc_init());
+#endif // CONFIG_TINYUSB_MSC_ENABLED
+
 }
 
 void usb_tx_strn(const char *str, size_t len) {

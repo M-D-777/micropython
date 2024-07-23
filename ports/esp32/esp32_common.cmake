@@ -59,6 +59,7 @@ list(APPEND MICROPY_SOURCE_PORT
     ppp_set_auth.c
     uart.c
     usb.c
+    usb_msc.c
     usb_serial_jtag.c
     gccollect.c
     mphalport.c
